@@ -1,8 +1,53 @@
 return {
   {
+    'webhooked/kanso.nvim',
+    lazy = false,
+    enabled = true,
+    priority = 1000,
+    init = function()
+      -- vim.cmd.colorscheme 'kanso-zen'
+    end,
+  },
+  {
+    'rebelot/kanagawa.nvim',
+    priority = 1000,
+    enabled = true,
+    opts = {
+      colors = {
+        theme = {
+          all = {
+            ui = {
+              bg_gutter = 'none',
+            },
+          },
+        },
+      },
+      overrides = function(colors)
+        local theme = colors.theme
+        return {
+          Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 }, -- add `blend = vim.o.pumblend` to enable transparency,,
+          PmenuSel = { fg = 'NONE', bg = theme.ui.bg_p2 },
+          PmenuSbar = { bg = theme.ui.bg_m1 },
+          PmenuThumb = { bg = '#C0A36E' },
+          BlinkCmpMenuBorder = { fg = '', bg = '' },
+
+          NormalFloat = { bg = 'none' },
+          FloatBorder = { bg = 'none' },
+          FloatTitle = { bg = 'none' },
+          -- LineNr = { fg = "#C0A36E", bg = "NONE" },
+          CursorLineNr = { fg = colors.palette.sakuraPink, bg = 'NONE' },
+        }
+      end,
+    },
+    init = function()
+      vim.cmd.colorscheme 'kanagawa-wave'
+    end,
+  },
+  {
     'catppuccin/nvim',
     name = 'catppuccin',
     priority = 1000,
+    enabled = false,
     opts = {
       transparent_background = true,
     },
