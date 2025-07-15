@@ -106,6 +106,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+vim.g.base46_cache = vim.fn.stdpath 'data' .. '/base64_cache/'
+
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
@@ -118,5 +120,9 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup {
   { import = 'plugins' },
 }
+
+for _, v in ipairs(vim.fn.readdir(vim.g.base46_cache)) do
+  dofile(vim.g.base46_cache .. v)
+end
 
 -- vim: ts=2 sts=2 sw=2 et

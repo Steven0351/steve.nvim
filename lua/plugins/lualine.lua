@@ -1,6 +1,7 @@
 return {
   {
     'nvim-lualine/lualine.nvim',
+    enabled = false,
     requires = { 'echasnovsi/mini.icons' },
     opts = {
       options = {

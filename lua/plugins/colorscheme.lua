@@ -5,13 +5,13 @@ return {
     enabled = true,
     priority = 1000,
     init = function()
-      -- vim.cmd.colorscheme 'kanso-zen'
+      vim.cmd.colorscheme 'kanso-zen'
     end,
   },
   {
     'rebelot/kanagawa.nvim',
     priority = 1000,
-    enabled = true,
+    enabled = false,
     opts = {
       colors = {
         theme = {
