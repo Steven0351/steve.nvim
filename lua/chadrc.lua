@@ -1,6 +1,11 @@
 return {
   base46 = {
-    theme = 'kanagawa',
+    theme = 'kanagawa-dragon',
+    hl_add = {
+      SnacksPicker = {
+        bg = 'black',
+      },
+    },
   },
   ui = {
     tabufline = {
