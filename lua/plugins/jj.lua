@@ -1,6 +1,10 @@
 return {
   'rafikdraoui/jj-diffconflicts',
   {
+    'avm99963/vim-jjdescription',
+    lazy = false,
+  },
+  {
     'julienvincent/hunk.nvim',
     cmd = { 'DiffEditor' },
     config = function()
