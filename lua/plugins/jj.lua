@@ -1,13 +1,14 @@
 return {
-  'rafikdraoui/jj-diffconflicts',
   {
-    'avm99963/vim-jjdescription',
+    'vim-jjdescription',
+    for_cat = 'jj',
     lazy = false,
   },
   {
-    'julienvincent/hunk.nvim',
+    'hunk.nvim',
+    for_cat = 'jj',
     cmd = { 'DiffEditor' },
-    config = function()
+    after = function(_)
       require('hunk').setup {
         keys = {
           global = {

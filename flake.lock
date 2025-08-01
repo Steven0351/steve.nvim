@@ -1,0 +1,94 @@
+{
+  "nodes": {
+    "nixCats": {
+      "locked": {
+        "lastModified": 1756502529,
+        "narHash": "sha256-IPhN1a/DecHCJKugq51TnPqcMkwHU7qrQXagR2k1KwA=",
+        "owner": "BirdeeHub",
+        "repo": "nixCats-nvim",
+        "rev": "b262211fc80bf5909f9b6642a7930fee907e3e8d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "BirdeeHub",
+        "repo": "nixCats-nvim",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1756381814,
+        "narHash": "sha256-tzo7YvAsGlzo4WiIHT0ooR59VHu+aKRQdHk7sIyoia4=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "aca2499b79170038df0dbaec8bf2f689b506ad32",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "plugins-fzf-lua-frecency": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1756076243,
+        "narHash": "sha256-+PPkh6SqPn8XlO+bpmwRC/ZZcBNrs69YRqERyqO+72Y=",
+        "owner": "elanmed",
+        "repo": "fzf-lua-frecency.nvim",
+        "rev": "9ee3d5f023c1a07bc595daf165e6b6be66509a8e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "elanmed",
+        "repo": "fzf-lua-frecency.nvim",
+        "type": "github"
+      }
+    },
+    "plugins-volt": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1749727664,
+        "narHash": "sha256-szq/QBI2Y6DKeqBuJ8qA4LlGYnarLT6D/fvwepIgSVc=",
+        "owner": "nvchad",
+        "repo": "volt",
+        "rev": "7b8c5e790120d9f08c8487dcb80692db6d2087a1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvchad",
+        "repo": "volt",
+        "type": "github"
+      }
+    },
+    "plugins-xcodebuild": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1756503214,
+        "narHash": "sha256-cww3Pbw6pyJWhYdnAhiT7GG+O9O3VN0dTH2CtmlhZSs=",
+        "owner": "wojciech-kulik",
+        "repo": "xcodebuild.nvim",
+        "rev": "a8b844187caacc7dfb78dd6a3ea99aed61e2f80f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "wojciech-kulik",
+        "repo": "xcodebuild.nvim",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "nixCats": "nixCats",
+        "nixpkgs": "nixpkgs",
+        "plugins-fzf-lua-frecency": "plugins-fzf-lua-frecency",
+        "plugins-volt": "plugins-volt",
+        "plugins-xcodebuild": "plugins-xcodebuild"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

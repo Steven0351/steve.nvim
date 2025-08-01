@@ -1,38 +1,38 @@
 return {
   {
-    'wojciech-kulik/xcodebuild.nvim',
-    dependencies = {
-      'nvim-telescope/telescope.nvim',
-      'MunifTanjim/nui.nvim',
-      'folke/snacks.nvim',
-      'stevearc/oil.nvim',
-      'nvim-treesitter/nvim-treesitter',
-    },
-    keys = {
-      { '<leader>X', '<cmd>XcodebuildPicker<cr>', mode = 'n', desc = 'Show Xcodebuild Actions' },
-      { '<leader>xb', '<cmd>XcodebuildBuild<cr>', mode = 'n', desc = 'Build Projiect' },
-      { '<leader>xr', '<cmd>XcodebuildBuild<cr>', mode = 'n', desc = 'Build & Run Project' },
-      { '<leader>xt', '<cmd>XcodebuildTest<cr>', mode = 'n', desc = 'Run Tests' },
-      { '<leader>xt', '<cmd>XcodebuildTestSelected<cr>', mode = 'v', desc = 'Run Selected Tests' },
-      { '<leader>xT', '<cmd>XcodebuildTestClass<cr>', mode = 'n', desc = 'Run Current Test Class' },
-      { '<leader>x.', '<cmd>XcodebuildTestRepeat<cr>', mode = 'n', desc = 'Repeat Last Test Run' },
-      { '<leader>xl', '<cmd>XcodebuildToggleLogs<cr>', mode = 'n', desc = 'Toggle Xcodebuild Logs' },
-      { '<leader>xc', '<cmd>XcodebuildToggleCodeCoverage<cr>', mode = 'n', desc = 'Toggle Code Coverage' },
-      { '<leader>xe', '<cmd>XcodebuildTestExplorerToggle<cr>', mode = 'n', desc = 'Toggle Test Explorer' },
-      { '<leader>xa', '<cmd>XcodebuildCodeActions<cr>', mode = 'n', desc = 'Show Code Actions' },
-    },
-    opts = {
-      integrations = {
-        pymobiledevice = {
-          enabled = false,
+    'xcodebuild.nvim',
+    for_cat = 'xcode',
+    after = function(_)
+      require('xcodebuild').setup {
+        integrations = {
+          pymobiledevice = {
+            enabled = false,
+          },
+          nvim_tree = {
+            enabled = false,
+          },
+          neo_tree = {
+            enabled = false,
+          },
         },
-        nvim_tree = {
-          enabled = false,
-        },
-        neo_tree = {
-          enabled = false,
-        },
-      },
-    },
+      }
+
+      vim.keymap.set('n', '<leader>X', '<cmd>XcodebuildPicker<cr>', { desc = 'Show Xcodebuild Actions' })
+      vim.keymap.set('n', '<leader>xb', '<cmd>XcodebuildBuild<cr>', { desc = 'Build Projiect' })
+      vim.keymap.set('n', '<leader>xr', '<cmd>XcodebuildBuild<cr>', { desc = 'Build & Run Project' })
+      vim.keymap.set('n', '<leader>xt', '<cmd>XcodebuildTest<cr>', { desc = 'Run Tests' })
+      vim.keymap.set('v', '<leader>xt', '<cmd>XcodebuildTestSelected<cr>', { desc = 'Run Selected Tests' })
+      vim.keymap.set('n', '<leader>xT', '<cmd>XcodebuildTestClass<cr>', { desc = 'Run Current Test Class' })
+      vim.keymap.set('n', '<leader>x.', '<cmd>XcodebuildTestRepeat<cr>', { desc = 'Repeat Last Test Run' })
+      vim.keymap.set('n', '<leader>xl', '<cmd>XcodebuildToggleLogs<cr>', { desc = 'Toggle Xcodebuild Logs' })
+      vim.keymap.set('n', '<leader>xc', '<cmd>XcodebuildToggleCodeCoverage<cr>', { desc = 'Toggle Code Coverage' })
+      vim.keymap.set('n', '<leader>xe', '<cmd>XcodebuildTestExplorerToggle<cr>', { desc = 'Toggle Test Explorer' })
+      vim.keymap.set('n', '<leader>xa', '<cmd>XcodebuildCodeActions<cr>', { desc = 'Show Code Actions' })
+    end,
+  },
+  {
+    'telescope.nvim',
+    for_cat = 'xcode',
+    on_require = 'telescope',
   },
 }
