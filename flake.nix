@@ -34,6 +34,11 @@
       flake = false;
     };
 
+    plugins-fzf-lua = {
+      url = "github:ibhagwan/fzf-lua";
+      flake = false;
+    };
+
     plugins-fzf-lua-frecency = {
       url = "github:elanmed/fzf-lua-frecency.nvim";
       flake = false;
@@ -159,6 +164,7 @@
           render-markdown-nvim
 
           vim-sleuth
+          vim-jjdescription
         ];
 
         debug = with pkgs.vimPlugins; [
@@ -169,7 +175,6 @@
 
         jj = with pkgs.vimPlugins; [
           hunk-nvim
-          vim-jjdescription
         ];
 
         neodev = with pkgs.vimPlugins; [
@@ -186,7 +191,7 @@
 
         ui = with pkgs.vimPlugins; [
           fidget-nvim
-          fzf-lua
+          pkgs.neovimPlugins.fzf-lua
           pkgs.neovimPlugins.fzf-lua-frecency
           noice-nvim
           nui-nvim

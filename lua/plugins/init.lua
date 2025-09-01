@@ -25,6 +25,7 @@ return {
   { import = 'plugins.treesitter' },
   { import = 'plugins.noice' },
   { import = 'plugins.snacks' },
+  { import = 'plugins.fzf' },
   { import = 'plugins.shared' },
   { import = 'plugins.sleuth' },
   { import = 'plugins.lazydev' },

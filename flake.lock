@@ -31,6 +31,22 @@
         "type": "github"
       }
     },
+    "plugins-fzf-lua": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1756735343,
+        "narHash": "sha256-BfdPVOmCcs49a2iM+dmcwoYUIgy/LUon1Fm1s8HB/6g=",
+        "owner": "ibhagwan",
+        "repo": "fzf-lua",
+        "rev": "091bcd0c925199b1371ea81ec79278611d299627",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ibhagwan",
+        "repo": "fzf-lua",
+        "type": "github"
+      }
+    },
     "plugins-fzf-lua-frecency": {
       "flake": false,
       "locked": {
@@ -83,6 +99,7 @@
       "inputs": {
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs",
+        "plugins-fzf-lua": "plugins-fzf-lua",
         "plugins-fzf-lua-frecency": "plugins-fzf-lua-frecency",
         "plugins-volt": "plugins-volt",
         "plugins-xcodebuild": "plugins-xcodebuild"
