@@ -124,8 +124,10 @@
           stylua
           shfmt
           languagetool
-          pngpaste # needed for imgclip.nvim
-        ];
+        ] ++ 
+          pkgs.lib.optionals pkgs.stdenv.isDarwin (with pkgs; [
+            pngpaste
+          ]);
       };
 
       # This is for plugins that will load at startup without using packadd:
