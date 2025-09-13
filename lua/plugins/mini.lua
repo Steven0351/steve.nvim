@@ -20,6 +20,14 @@ return {
     end,
   },
   {
+    'mini.files',
+    after = function(_)
+      local files = require 'mini.files'
+      files.setup()
+      vim.keymap.set('n', '<leader>mf', MiniFiles.open, { desc = 'Mini Files' })
+    end,
+  },
+  {
     'mini.surround',
     after = function(_)
       require('mini.surround').setup()

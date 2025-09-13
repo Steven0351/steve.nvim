@@ -151,6 +151,7 @@
           mini-icons
           mini-pairs
           mini-surround
+          mini-files
         ];
       };
 
