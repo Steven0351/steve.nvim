@@ -147,13 +147,13 @@ return {
     end,
   },
   {
-    'LuaSnip',
+    'luasnip',
     dep_of = 'blink.cmp',
     for_cat = 'lsp',
   },
   {
     'friendly-snippets',
-    dep_of = 'LuaSnip',
+    dep_of = 'luasnip',
     for_cat = 'lsp',
     on_plugin = function(_)
       require('luasnip.loaders.from_vscode').lazy_load()
