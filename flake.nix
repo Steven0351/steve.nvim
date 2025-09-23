@@ -143,6 +143,7 @@
           nvchad-ui
           oil-nvim
           plenary-nvim
+          # folke plugin
           snacks-nvim
         ];
 
@@ -152,6 +153,7 @@
           mini-pairs
           mini-surround
           mini-files
+          mini-clue
         ];
       };
 
@@ -182,6 +184,7 @@
 
         neodev = with pkgs.vimPlugins; [
           luvit-meta
+          # folke plugin
           lazydev-nvim
         ];
 
@@ -196,10 +199,10 @@
           fidget-nvim
           pkgs.neovimPlugins.fzf-lua
           pkgs.neovimPlugins.fzf-lua-frecency
-          noice-nvim
           nui-nvim
+          # folke plugins
           todo-comments-nvim
-          which-key-nvim
+          noice-nvim
         ];
 
         xcodebuild = [

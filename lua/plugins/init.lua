@@ -31,7 +31,6 @@ return {
   { import = 'plugins.lazydev' },
   { import = 'plugins.lsp' },
   { import = 'plugins.todo-comments' },
-  { import = 'plugins.which-key' },
   { import = 'plugins.markdown' },
   { import = 'plugins.jj' },
   { import = 'plugins.gitsigns' },
