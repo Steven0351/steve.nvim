@@ -119,6 +119,7 @@
       lspsAndRuntimeDeps = {
         general = with pkgs; [
           nixd
+          nixfmt
           lua-language-server
           bash-language-server
           stylua
