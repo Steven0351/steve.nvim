@@ -12,7 +12,13 @@ return {
         require('fzf-lua-frecency').frecency {
           cwd_only = true,
         }
-      end, { desc = 'Smart Find Files' })
+      end, { desc = 'Find Files (Frecency)' })
+
+      vim.keymap.set('n', '<leader>ff', function()
+        require('fzf-lua-frecency').frecency {
+          cwd_only = true,
+        }
+      end, { desc = 'Files (Frecency)' })
 
       vim.keymap.set('n', '<leader>p', function()
         FzfLua.global()
@@ -22,13 +28,29 @@ return {
         FzfLua.buffers()
       end, { desc = 'Buffers' })
 
+      vim.keymap.set('n', '<leader>fb', function()
+        FzfLua.buffers()
+      end, { desc = 'Buffers' })
+
       vim.keymap.set('n', '<leader>/', function()
-        FzfLua.grep()
-      end, { desc = 'Grep' })
+        FzfLua.live_grep()
+      end, { desc = 'Live Grep' })
+
+      vim.keymap.set('n', '<leader>fg', function()
+        FzfLua.live_grep()
+      end, { desc = 'Live Grep' })
 
       vim.keymap.set('n', '<leader>fm', function()
         FzfLua.marks()
-      end, { desc = 'Find marks' })
+      end, { desc = 'Marks' })
+
+      vim.keymap.set('n', '<leader>fB', function()
+        FzfLua.builtin()
+      end, { desc = 'FzfLua Builtins' })
+
+      vim.keymap.set('n', '<leader>fr', function()
+        FzfLua.resume()
+      end, { desc = 'FzfLua Resume' })
     end,
   },
   {

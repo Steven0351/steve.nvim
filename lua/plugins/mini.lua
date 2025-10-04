@@ -40,7 +40,7 @@ return {
   {
     'mini.ai',
     event = 'DeferredUIEnter',
-    config = function()
+    after = function(_)
       local spec_treesitter = require('mini.ai').gen_spec.treesitter
       require('mini.ai').setup {
         n_lines = 500,
