@@ -22,6 +22,7 @@ return {
           Lua = {
             completion = {
               callSnippet = 'Replace',
+              keywordSnippet = 'Disable',
             },
           },
         },
@@ -147,17 +148,22 @@ return {
     end,
   },
   {
-    'luasnip',
+    'mini.snippets',
     dep_of = 'blink.cmp',
-    for_cat = 'lsp',
+    for_cat = 'mini',
+    after = function(_)
+      local snippets = require 'mini.snippets'
+      snippets.setup {
+        snippets = {
+          snippets.gen_loader.from_lang(),
+        },
+      }
+    end,
   },
   {
     'friendly-snippets',
-    dep_of = 'luasnip',
+    dep_of = 'mini.snippets',
     for_cat = 'lsp',
-    on_plugin = function(_)
-      require('luasnip.loaders.from_vscode').lazy_load()
-    end,
   },
   { -- Autocompletion
     'blink.cmp',
@@ -221,7 +227,7 @@ return {
           },
         },
 
-        snippets = { preset = 'luasnip' },
+        snippets = { preset = 'mini_snippets' },
 
         -- Blink.cmp includes an optional, recommended rust fuzzy matcher,
         -- which automatically downloads a prebuilt binary when enabled.
@@ -231,9 +237,7 @@ return {
         --
         -- See :h blink-cmp-config-fuzzy for more information
         fuzzy = { implementation = 'prefer_rust_with_warning' },
-
-        -- Shows a signature help window while you type arguments for a function
-        signature = { enabled = true },
+        menu = require('nvchad.blink').menu,
       }
     end,
   },

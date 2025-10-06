@@ -178,6 +178,7 @@
               mini-surround
               mini-files
               mini-clue
+              mini-snippets
             ];
           };
 

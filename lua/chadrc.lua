@@ -15,5 +15,8 @@ return {
       theme = 'default',
       separator_style = 'round',
     },
+    cmp = {
+      style = 'flat_dark',
+    },
   },
 }
