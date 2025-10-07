@@ -43,6 +43,12 @@
       url = "github:elanmed/fzf-lua-frecency.nvim";
       flake = false;
     };
+
+    plugins-nvim-lspconfig = {
+      url = "github:neovim/nvim-lspconfig";
+      flake = false;
+    };
+
     # neovim-nightly-overlay = {
     #   url = "github:nix-community/neovim-nightly-overlay";
     # };
@@ -77,7 +83,7 @@
       # will not apply to module imports
       # as that will have your system values
       extra_pkg_config = {
-        # allowUnfree = true;
+        allowUnfree = true;
       };
       # management of the system variable is one of the harder parts of using flakes.
 
@@ -138,13 +144,17 @@
             general =
               with pkgs;
               [
+                copilot-language-server
+                claude-code
                 nixd
                 nixfmt
+                languagetool
                 lua-language-server
                 bash-language-server
                 stylua
                 shfmt
-                languagetool
+                viu
+                mermaid-cli
               ]
               ++ pkgs.lib.optionals pkgs.stdenv.isDarwin (
                 with pkgs;
@@ -214,7 +224,7 @@
             ];
 
             lsp = with pkgs.vimPlugins; [
-              nvim-lspconfig
+              pkgs.neovimPlugins.nvim-lspconfig
               blink-cmp
               luasnip
               friendly-snippets

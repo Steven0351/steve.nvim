@@ -19,4 +19,7 @@ return {
       style = 'flat_dark',
     },
   },
+  lsp = {
+    signature = false,
+  },
 }

@@ -213,6 +213,7 @@ return {
             auto_show = true,
             auto_show_delay_ms = 500,
           },
+          menu = require('nvchad.blink').menu,
         },
 
         cmdline = {
@@ -237,7 +238,17 @@ return {
         --
         -- See :h blink-cmp-config-fuzzy for more information
         fuzzy = { implementation = 'prefer_rust_with_warning' },
-        menu = require('nvchad.blink').menu,
+        signature = {
+          enabled = true,
+          window = {
+            border = 'solid',
+            max_height = 100,
+            max_width = 200,
+            scrollbar = true,
+            show_documentation = true,
+            winhighlight = 'Normal:CmpPmenu,CursorLine:CmpSel,Search:None,FloatBorder:CmpBorder',
+          },
+        },
       }
     end,
   },
