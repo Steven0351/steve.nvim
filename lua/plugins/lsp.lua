@@ -170,7 +170,7 @@ return {
     for_cat = 'lsp',
     event = 'VimEnter',
     after = function(_)
-      require('blink-cmp').setup {
+      require('blink.cmp').setup {
         keymap = {
           -- 'default' (recommended) for mappings similar to built-in completions
           --   <c-y> to accept ([y]es) the completion.

@@ -49,6 +49,10 @@
       flake = false;
     };
 
+    plugins-codecompanion = {
+      url = "github:olimorris/codecompanion.nvim";
+      flake = false;
+    };
     # neovim-nightly-overlay = {
     #   url = "github:nix-community/neovim-nightly-overlay";
     # };
@@ -252,8 +256,7 @@
             ];
 
             ai = with pkgs.vimPlugins; [
-              codecompanion-nvim
-              avante-nvim
+              pkgs.neovimPlugins.codecompanion
               dressing-nvim
               img-clip-nvim
             ];

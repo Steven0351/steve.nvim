@@ -31,6 +31,22 @@
         "type": "github"
       }
     },
+    "plugins-codecompanion": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1759860463,
+        "narHash": "sha256-IeZOGnTc1eg4aGRXWwuENVEuJaGNOVuAgohkTvKtSJg=",
+        "owner": "olimorris",
+        "repo": "codecompanion.nvim",
+        "rev": "946e18627271e008635d53f96a56af459ebb40da",
+        "type": "github"
+      },
+      "original": {
+        "owner": "olimorris",
+        "repo": "codecompanion.nvim",
+        "type": "github"
+      }
+    },
     "plugins-fzf-lua": {
       "flake": false,
       "locked": {
@@ -115,6 +131,7 @@
       "inputs": {
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs",
+        "plugins-codecompanion": "plugins-codecompanion",
         "plugins-fzf-lua": "plugins-fzf-lua",
         "plugins-fzf-lua-frecency": "plugins-fzf-lua-frecency",
         "plugins-nvim-lspconfig": "plugins-nvim-lspconfig",
