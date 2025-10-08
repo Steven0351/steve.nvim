@@ -84,20 +84,42 @@ vim.opt.scrolloff = 20
 -- See `:help 'confirm'`
 vim.opt.confirm = true
 
+---@alias mode 'n' | 'i' | 'v' | 'x' | 's' | 'o' | 'c' | 't' | mode[]
+
+---@class kset.Opts
+---@field [1] string lhs
+---@field [2] function | string rhs
+---@field [3] string? desc
+---@field mode mode?
+---@field opts vim.keymap.set.Opts?
+
+---vim.keymap.set helper that opts for defaulting to the most common case
+---of normal mode and the only value of opts being the description
+---@param opts kset.Opts
+_G.kset = function(opts)
+  local lhs = opts[1]
+  local rhs = opts[2]
+  local mode = opts.mode or 'n'
+  local _opts = opts.opts or {}
+  _opts.desc = opts[3] or _opts.desc
+
+  vim.keymap.set(mode, lhs, rhs, _opts)
+end
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+kset { '<Esc>', '<cmd>nohlsearch<CR>' }
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+kset { '<leader>q', vim.diagnostic.setloclist, 'Open diagnostic [Q]uickfix list' }
 
-vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+kset { '<C-h>', '<C-w><C-h>', 'Move focus to the left window' }
+kset { '<C-l>', '<C-w><C-l>', 'Move focus to the right window' }
+kset { '<C-j>', '<C-w><C-j>', 'Move focus to the lower window' }
+kset { '<C-k>', '<C-w><C-k>', 'Move focus to the upper window' }
 
 -- [[ Basic Autocommands ]]
 

@@ -31,47 +31,44 @@ return {
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
         callback = function(event)
-          local map = function(keys, func, desc, mode)
-            mode = mode or 'n'
-            vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
-          end
-
           -- Rename the variable under your cursor.
           --  Most Language Servers support renaming across files, etc.
-          map('gr', vim.lsp.buf.rename, '[R]e[n]ame')
+          kset { 'grn', vim.lsp.buf.rename, '[R]e[n]ame' }
 
           -- Execute a code action, usually your cursor needs to be on top of an error
           -- or a suggestion from your LSP for this to activate.
-          map('ga', vim.lsp.buf.code_action, '[G]oto Code [A]ction', { 'n', 'x' })
+          kset { 'gra', vim.lsp.buf.code_action, '[G]oto Code [A]ction', mode = { 'n', 'x' } }
+
+          ---@module 'fzf-lua'
 
           -- Find references for the word under your cursor.
-          map('gR', Snacks.picker.lsp_references, '[G]oto [R]eferences')
+          kset { 'grr', FzfLua.lsp_references, '[G]oto [R]eferences' }
 
           -- Jump to the implementation of the word under your cursor.
           --  Useful when your language has ways of declaring types without an actual implementation.
-          map('gI', Snacks.picker.lsp_implementations, '[G]oto [I]mplementation')
+          kset { 'gri', FzfLua.lsp_implementations, '[G]oto [I]mplementation' }
 
           -- Jump to the definition of the word under your cursor.
           --  This is where a variable was first declared, or where a function is defined, etc.
           --  To jump back, press <C-t>.
-          map('gd', Snacks.picker.lsp_definitions, '[G]oto [D]efinition')
+          kset { 'grd', FzfLua.lsp_definitions, '[G]oto [D]efinition' }
 
           -- WARN: This is not Goto Definition, this is Goto Declaration.
           --  For example, in C this would take you to the header.
-          map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+          kset { 'grD', vim.lsp.buf.declaration, '[G]oto [D]eclaration' }
 
           -- Fuzzy find all the symbols in your current document.
           --  Symbols are things like variables, functions, types, etc.
-          map('gO', Snacks.picker.lsp_symbols, 'Open Document Symbols')
+          kset { 'gro', FzfLua.lsp_document_symbols, '[O]pen Document Symbols' }
 
           -- Fuzzy find all the symbols in your current workspace.
           --  Similar to document symbols, except searches over your entire project.
-          map('gW', Snacks.picker.lsp_workspace_symbols, 'Open Workspace Symbols')
+          kset { 'grw', FzfLua.lsp_workspace_symbols, 'Open [W]orkspace Symbols' }
 
           -- Jump to the type of the word under your cursor.
           --  Useful when you're not sure what type a variable is and you want to see
           --  the definition of its *type*, not where it was *defined*.
-          map('gt', Snacks.picker.lsp_type_definitions, '[G]oto [T]ype Definition')
+          kset { 'grt', FzfLua.lsp_typedefs, '[G]oto [T]ype Definition' }
 
           -- The following two autocommands are used to highlight references of the
           -- word under your cursor when your cursor rests there for a little while.
@@ -107,9 +104,13 @@ return {
           --
           -- This may be unwanted, since they displace some of your code
           if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
-            map('<leader>th', function()
-              vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
-            end, '[T]oggle Inlay [H]ints')
+            kset {
+              '<leader>th',
+              function()
+                vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
+              end,
+              '[T]oggle Inlay [H]ints',
+            }
           end
         end,
       })

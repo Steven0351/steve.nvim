@@ -35,7 +35,7 @@ return {
   { import = 'plugins.jj' },
   { import = 'plugins.gitsigns' },
   { import = 'plugins.formatting' },
-  { import = 'plugins.ai' },
+  { import = 'plugins.codecompanion' },
   { import = 'plugins.debug' },
   { import = 'plugins.xcodebuild' },
   { import = 'plugins.grug-far' },

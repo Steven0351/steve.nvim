@@ -134,6 +134,24 @@
           mkPlugin,
           ...
         }@packageDef:
+        let
+          claude-code-acp = pkgs.buildNpmPackage (finalAttrs: {
+            pname = "claude-code-acp";
+            version = "0.5.3";
+            src = pkgs.fetchFromGitHub {
+              owner = "zed-industries";
+              repo = "claude-code-acp";
+              rev = "v${finalAttrs.version}";
+              hash = "sha256-QUCUteZlJXlNC0rqVfvYphRaTCl0yVPVYirVC93664E=";
+            };
+
+            npmDepsHash = "sha256-8/Tf+aB2uziqhcJEYa2awdRJRSvLCTjpuOB54+9zBeU=";
+
+            buildInputs = with pkgs; [
+              nodejs_24
+            ];
+          });
+        in
         {
           # to define and use a new category, simply add a new list to a set here,
           # and later, you will include categoryname = true; in the set you
@@ -150,6 +168,7 @@
               [
                 copilot-language-server
                 claude-code
+                claude-code-acp
                 nixd
                 nixfmt
                 languagetool

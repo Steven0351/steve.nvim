@@ -17,17 +17,17 @@ return {
         },
       }
 
-      vim.keymap.set('n', '<leader>X', '<cmd>XcodebuildPicker<cr>', { desc = 'Show Xcodebuild Actions' })
-      vim.keymap.set('n', '<leader>xb', '<cmd>XcodebuildBuild<cr>', { desc = 'Build Projiect' })
-      vim.keymap.set('n', '<leader>xr', '<cmd>XcodebuildBuild<cr>', { desc = 'Build & Run Project' })
-      vim.keymap.set('n', '<leader>xt', '<cmd>XcodebuildTest<cr>', { desc = 'Run Tests' })
-      vim.keymap.set('v', '<leader>xt', '<cmd>XcodebuildTestSelected<cr>', { desc = 'Run Selected Tests' })
-      vim.keymap.set('n', '<leader>xT', '<cmd>XcodebuildTestClass<cr>', { desc = 'Run Current Test Class' })
-      vim.keymap.set('n', '<leader>x.', '<cmd>XcodebuildTestRepeat<cr>', { desc = 'Repeat Last Test Run' })
-      vim.keymap.set('n', '<leader>xl', '<cmd>XcodebuildToggleLogs<cr>', { desc = 'Toggle Xcodebuild Logs' })
-      vim.keymap.set('n', '<leader>xc', '<cmd>XcodebuildToggleCodeCoverage<cr>', { desc = 'Toggle Code Coverage' })
-      vim.keymap.set('n', '<leader>xe', '<cmd>XcodebuildTestExplorerToggle<cr>', { desc = 'Toggle Test Explorer' })
-      vim.keymap.set('n', '<leader>xa', '<cmd>XcodebuildCodeActions<cr>', { desc = 'Show Code Actions' })
+      kset { '<leader>X', '<cmd>XcodebuildPicker<cr>', 'Show Xcodebuild Actions' }
+      kset { '<leader>xb', '<cmd>XcodebuildBuild<cr>', 'Build Projiect' }
+      kset { '<leader>xr', '<cmd>XcodebuildBuild<cr>', 'Build & Run Project' }
+      kset { '<leader>xt', '<cmd>XcodebuildTest<cr>', 'Run Tests' }
+      kset { mode = 'v', '<leader>xt', '<cmd>XcodebuildTestSelected<cr>', 'Run Selected Tests' }
+      kset { '<leader>xT', '<cmd>XcodebuildTestClass<cr>', 'Run Current Test Class' }
+      kset { '<leader>x.', '<cmd>XcodebuildTestRepeat<cr>', 'Repeat Last Test Run' }
+      kset { '<leader>xl', '<cmd>XcodebuildToggleLogs<cr>', 'Toggle Xcodebuild Logs' }
+      kset { '<leader>xc', '<cmd>XcodebuildToggleCodeCoverage<cr>', 'Toggle Code Coverage' }
+      kset { '<leader>xe', '<cmd>XcodebuildTestExplorerToggle<cr>', 'Toggle Test Explorer' }
+      kset { '<leader>xa', '<cmd>XcodebuildCodeActions<cr>', 'Show Code Actions' }
     end,
   },
   {

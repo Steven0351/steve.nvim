@@ -24,7 +24,7 @@ return {
     after = function(_)
       local files = require 'mini.files'
       files.setup()
-      vim.keymap.set('n', '<leader>mf', MiniFiles.open, { desc = 'Mini Files' })
+      kset { '<leader>mf', MiniFiles.open, 'Mini Files' }
     end,
   },
   {

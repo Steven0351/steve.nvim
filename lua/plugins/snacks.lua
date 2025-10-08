@@ -18,9 +18,6 @@ return {
         notifier = {
           enabled = true,
         },
-        picker = {
-          enabled = true,
-        },
         rename = {
           enabled = true,
         },
@@ -34,10 +31,6 @@ return {
           enabled = true,
         },
       }
-
-      vim.keymap.set('n', '<leader>e', function()
-        Snacks.explorer()
-      end, { desc = 'File explorer' })
     end,
   },
 }
