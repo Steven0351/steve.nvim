@@ -1,0 +1,10 @@
+#!/usr/bin/env fish
+
+set -l ver $argv[1]
+set -l sources (nix-prefetch-github --rev "v$ver" zed-industries claude-code-acp)
+set -l npm_deps_hash (nix run nixpkgs#prefetch-npm-deps -- (curl "https://raw.githubusercontent.com/zed-industries/claude-code-acp/refs/tags/v$ver/package-lock.json" 2>/dev/null | psub))
+
+echo "Sources"
+echo $sources | jq
+echo npmDepsHash
+echo $npm_deps_hash
