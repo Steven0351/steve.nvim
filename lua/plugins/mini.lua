@@ -119,10 +119,11 @@ return {
           miniclue.gen_clues.windows(),
           miniclue.gen_clues.z(),
           {
-            { mode = 'n', keys = '<Leader>a', desc = '󱚞 Avante' },
+            { mode = 'n', keys = '<Leader>c', desc = '󱚞 CodeCompanion' },
             { mode = 'n', keys = '<Leader>d', desc = ' Debug' },
             { mode = 'n', keys = '<Leader>ds', desc = ' Debug: Step' },
             { mode = 'n', keys = '<Leader>h', desc = ' Git' },
+            { mode = 'n', keys = '<Leader>k', desc = '󰡷 Kulala' },
             { mode = 'n', keys = '<Leader>f', desc = '󰍉 Find' },
             { mode = 'n', keys = '<Leader>t', desc = '󰨚 Toggle' },
           },

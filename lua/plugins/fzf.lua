@@ -1,7 +1,6 @@
 return {
   {
     'fzf-lua',
-    event = 'DeferredUIEnter',
     dep_of = 'fzf-lua-frecency',
     after = function(_)
       require('fzf-lua').setup {
@@ -55,7 +54,6 @@ return {
   },
   {
     'fzf-lua-frecency',
-    event = 'DeferredUIEnter',
     after = function(_)
       require('fzf-lua-frecency').setup()
     end,

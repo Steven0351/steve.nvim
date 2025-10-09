@@ -39,4 +39,5 @@ return {
   { import = 'plugins.debug' },
   { import = 'plugins.xcodebuild' },
   { import = 'plugins.grug-far' },
+  { import = 'plugins.kulala' },
 }

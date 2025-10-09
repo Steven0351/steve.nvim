@@ -137,20 +137,27 @@
         let
           claude-code-acp = pkgs.buildNpmPackage (finalAttrs: {
             pname = "claude-code-acp";
-            version = "0.5.3";
+            version = "0.5.4";
             src = pkgs.fetchFromGitHub {
               owner = "zed-industries";
               repo = "claude-code-acp";
               rev = "v${finalAttrs.version}";
-              hash = "sha256-QUCUteZlJXlNC0rqVfvYphRaTCl0yVPVYirVC93664E=";
+              hash = "sha256-va98a1P6az1p5FkJylhSHommF7C4qsFbbigW/Id4WRU=";
             };
 
-            npmDepsHash = "sha256-8/Tf+aB2uziqhcJEYa2awdRJRSvLCTjpuOB54+9zBeU=";
+            npmDepsHash = "sha256-93qDUanqHiUwvGq2t9BvzpY8isPg5X3XVvGCNySveWA=";
 
             buildInputs = with pkgs; [
               nodejs_24
             ];
           });
+
+          kulala-grammar = pkgs.tree-sitter.buildGrammar {
+            language = "kulala_http";
+            version = "${pkgs.vimPlugins.kulala-nvim.version}";
+            src = "${pkgs.vimPlugins.kulala-nvim}/lua/tree-sitter";
+            generate = true;
+          };
         in
         {
           # to define and use a new category, simply add a new list to a set here,
@@ -166,18 +173,20 @@
             general =
               with pkgs;
               [
+                bash-language-server
                 copilot-language-server
                 claude-code
                 claude-code-acp
                 nixd
                 nixfmt
                 languagetool
+                kulala-fmt
                 lua-language-server
-                bash-language-server
+                mermaid-cli
                 stylua
                 shfmt
+                tree-sitter
                 viu
-                mermaid-cli
               ]
               ++ pkgs.lib.optionals pkgs.stdenv.isDarwin (
                 with pkgs;
@@ -200,6 +209,8 @@
               nvchad-ui
               oil-nvim
               plenary-nvim
+              pkgs.neovimPlugins.fzf-lua
+              pkgs.neovimPlugins.fzf-lua-frecency
               # folke plugin
               snacks-nvim
             ];
@@ -228,6 +239,8 @@
 
               guess-indent-nvim
               vim-jjdescription
+
+              kulala-nvim
             ];
 
             debug = with pkgs.vimPlugins; [
@@ -255,8 +268,6 @@
 
             ui = with pkgs.vimPlugins; [
               fidget-nvim
-              pkgs.neovimPlugins.fzf-lua
-              pkgs.neovimPlugins.fzf-lua-frecency
               nui-nvim
               # folke plugins
               todo-comments-nvim
@@ -269,7 +280,13 @@
             ];
 
             treesitter = with pkgs.vimPlugins; [
-              nvim-treesitter.withAllGrammars
+              (nvim-treesitter.withPlugins (
+                plugins:
+                nvim-treesitter.allGrammars
+                ++ [
+                  kulala-grammar
+                ]
+              ))
               nvim-treesitter-textobjects
               mini-ai
             ];

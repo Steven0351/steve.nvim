@@ -4,15 +4,6 @@ return {
     for_cat = 'ai',
     event = 'DeferredUIEnter',
     after = function(_)
-      local anthropic = function(adapter, key_name)
-        return function()
-          return require('codecompanion.adapters').extend(adapter, {
-            env = {
-              [key_name] = 'cmd:op read "op://private/Anthropic/credential" --no-newline',
-            },
-          })
-        end
-      end
       local companion = require 'codecompanion'
 
       -- Fidget.nvim integration for activity spinner
@@ -59,10 +50,22 @@ return {
         },
         adapters = {
           http = {
-            anthropic = anthropic('anthropic', 'api_key'),
+            anthropic = function()
+              return require('codecompanion.adapters').extend('anthropic', {
+                env = {
+                  api_key = 'cmd:op read "op://private/Anthropic/credential" --no-newline',
+                },
+              })
+            end,
           },
           acp = {
-            claude_code = anthropic('claude_code', 'ANTHROPIC_API_KEY'),
+            claude_code = function()
+              return require('codecompanion.adapters').extend('claude_code', {
+                env = {
+                  CLAUDE_CODE_OAUTH_TOKEN = 'cmd:op read "op://private/Claude Pro/credential" --no-newline',
+                },
+              })
+            end,
           },
         },
         strategies = {

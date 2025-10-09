@@ -2,7 +2,7 @@ return {
   { -- Highlight, edit, and navigate code
     'nvim-treesitter',
     event = 'DeferredUIEnter',
-    dep_of = 'nvim-treesitter-textobjects',
+    dep_of = { 'nvim-treesitter-textobjects', 'kulala.nvim' },
     for_cat = 'treesitter',
     after = function(_)
       require('nvim-treesitter.configs').setup {
