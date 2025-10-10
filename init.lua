@@ -121,6 +121,8 @@ kset { '<C-l>', '<C-w><C-l>', 'Move focus to the right window' }
 kset { '<C-j>', '<C-w><C-j>', 'Move focus to the lower window' }
 kset { '<C-k>', '<C-w><C-k>', 'Move focus to the upper window' }
 
+kset { '<Esc><Esc>', '<C-\\><C-n>', 'Exit terminal mode', mode = 't' }
+
 -- [[ Basic Autocommands ]]
 
 -- Highlight when yanking (copying) text
