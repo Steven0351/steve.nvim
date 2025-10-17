@@ -7,49 +7,28 @@ return {
         fzf_colors = true,
       }
 
-      vim.keymap.set('n', '<leader><space>', function()
+      local frecency = function()
         require('fzf-lua-frecency').frecency {
           cwd_only = true,
         }
-      end, { desc = 'Find Files (Frecency)' })
+      end
 
-      vim.keymap.set('n', '<leader>ff', function()
-        require('fzf-lua-frecency').frecency {
-          cwd_only = true,
-        }
-      end, { desc = 'Files (Frecency)' })
-
-      vim.keymap.set('n', '<leader>p', function()
-        FzfLua.global()
-      end, { desc = 'Open Palette' })
-
-      vim.keymap.set('n', '<leader>,', function()
-        FzfLua.buffers()
-      end, { desc = 'Buffers' })
-
-      vim.keymap.set('n', '<leader>fb', function()
-        FzfLua.buffers()
-      end, { desc = 'Buffers' })
-
-      vim.keymap.set('n', '<leader>/', function()
-        FzfLua.live_grep()
-      end, { desc = 'Live Grep' })
-
-      vim.keymap.set('n', '<leader>fg', function()
-        FzfLua.live_grep()
-      end, { desc = 'Live Grep' })
-
-      vim.keymap.set('n', '<leader>fm', function()
-        FzfLua.marks()
-      end, { desc = 'Marks' })
-
-      vim.keymap.set('n', '<leader>fB', function()
-        FzfLua.builtin()
-      end, { desc = 'FzfLua Builtins' })
-
-      vim.keymap.set('n', '<leader>fr', function()
-        FzfLua.resume()
-      end, { desc = 'FzfLua Resume' })
+      kset { '<leader><space>', frecency, 'Find Files (Frecency)' }
+      kset { '<leader>ff', frecency, 'Find Files (Frecency)' }
+      kset { '<leader>p', FzfLua.global, 'Open Palette' }
+      kset { '<leader>,', FzfLua.buffers, 'Buffers' }
+      kset { '<leader>fb', FzfLua.buffers, 'Buffers' }
+      kset { '<leader>/', FzfLua.live_grep, 'Live Grep' }
+      kset { '<leader>fg', FzfLua.live_grep, 'Live Grep' }
+      kset { '<leader>fm', FzfLua.marks, 'Marks' }
+      kset { '<leader>fB', FzfLua.builtin, 'FzfLua Builtins' }
+      kset { '<leader>fr', FzfLua.resume, 'FzfLua Resume' }
+      kset { '<leader>fs', FzfLua.lsp_workspace_symbols, 'Workspace Symbols' }
+      kset { '<leader>fd', FzfLua.diagnostics_document, 'Document Diagnostics' }
+      kset { '<leader>fD', FzfLua.diagnostics_workspace, 'Workspace Diagnostics' }
+      kset { '<leader>fk', FzfLua.keymaps, 'Keymaps' }
+      kset { '<leader>fl', FzfLua.lsp_finder, 'LSP under cursor' }
+      kset { '<leader>fR', FzfLua.registers, 'Registers' }
     end,
   },
   {
