@@ -53,9 +53,6 @@
       url = "github:olimorris/codecompanion.nvim";
       flake = false;
     };
-    # neovim-nightly-overlay = {
-    #   url = "github:nix-community/neovim-nightly-overlay";
-    # };
 
     # see :help nixCats.flake.inputs
     # If you want your plugin to be loaded by the standard overlay,
@@ -137,15 +134,15 @@
         let
           claude-code-acp = pkgs.buildNpmPackage (finalAttrs: {
             pname = "claude-code-acp";
-            version = "0.5.4";
+            version = "0.9.0";
             src = pkgs.fetchFromGitHub {
               owner = "zed-industries";
               repo = "claude-code-acp";
               rev = "v${finalAttrs.version}";
-              hash = "sha256-va98a1P6az1p5FkJylhSHommF7C4qsFbbigW/Id4WRU=";
+              hash = "sha256-XsWiSLqC/F+UPGl31hYupz8JV++Djf8KG0QHXk3qN2Q=";
             };
 
-            npmDepsHash = "sha256-93qDUanqHiUwvGq2t9BvzpY8isPg5X3XVvGCNySveWA=";
+            npmDepsHash = "sha256-zumESu89N3R1QbPNpbNhtVpIzmr6AF/5YkeXyN2RAio=";
 
             buildInputs = with pkgs; [
               nodejs_24
@@ -187,6 +184,8 @@
                 shfmt
                 tree-sitter
                 viu
+                # This is codelldb
+                vscode-extensions.vadimcn.vscode-lldb.adapter
               ]
               ++ pkgs.lib.optionals pkgs.stdenv.isDarwin (
                 with pkgs;

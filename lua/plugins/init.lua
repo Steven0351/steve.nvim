@@ -14,10 +14,7 @@ return {
           ['q'] = 'actions.close',
         },
       }
-
-      vim.keymap.set('n', '<leader>o', function()
-        oil.toggle_float(nil)
-      end, { desc = 'Open oil' })
+      kset { '<leader>o', ':Oil<CR>', 'Open oil' }
     end,
   },
   { import = 'plugins.mini' },

@@ -34,11 +34,11 @@
     "plugins-codecompanion": {
       "flake": false,
       "locked": {
-        "lastModified": 1759860463,
-        "narHash": "sha256-IeZOGnTc1eg4aGRXWwuENVEuJaGNOVuAgohkTvKtSJg=",
+        "lastModified": 1761862332,
+        "narHash": "sha256-gTC3KeLwt5MiJ1lfY7wPhZioATayNNZiGTRVM3l+uo0=",
         "owner": "olimorris",
         "repo": "codecompanion.nvim",
-        "rev": "946e18627271e008635d53f96a56af459ebb40da",
+        "rev": "50ea30ec76e1a2695164991a7480f0fa0662e9db",
         "type": "github"
       },
       "original": {
