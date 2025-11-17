@@ -24,11 +24,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
 
-    plugins-volt = {
-      url = "github:nvchad/volt";
-      flake = false;
-    };
-
     plugins-xcodebuild = {
       url = "github:wojciech-kulik/xcodebuild.nvim";
       flake = false;
@@ -51,6 +46,16 @@
 
     plugins-codecompanion = {
       url = "github:olimorris/codecompanion.nvim";
+      flake = false;
+    };
+
+    plugins-conifer = {
+      url = "github:lucasadelino/conifer.nvim";
+      flake = false;
+    };
+
+    plugins-blackmetal = {
+      url = "github:metalelf0/black-metal-theme-neovim";
       flake = false;
     };
 
@@ -198,7 +203,8 @@
           # This is for plugins that will load at startup without using packadd:
           startupPlugins = {
             gitPlugins = with pkgs.neovimPlugins; [
-              volt
+              conifer
+              blackmetal
             ];
 
             editor = with pkgs.vimPlugins; [

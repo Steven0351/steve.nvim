@@ -31,6 +31,22 @@
         "type": "github"
       }
     },
+    "plugins-blackmetal": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1755520422,
+        "narHash": "sha256-sRbXxekmQuL412AJKrSkI1EdcuYQkKm1qfcIyMNhLBA=",
+        "owner": "metalelf0",
+        "repo": "black-metal-theme-neovim",
+        "rev": "6d0207871387077f40d5396ab1ae90520e688d36",
+        "type": "github"
+      },
+      "original": {
+        "owner": "metalelf0",
+        "repo": "black-metal-theme-neovim",
+        "type": "github"
+      }
+    },
     "plugins-codecompanion": {
       "flake": false,
       "locked": {
@@ -44,6 +60,22 @@
       "original": {
         "owner": "olimorris",
         "repo": "codecompanion.nvim",
+        "type": "github"
+      }
+    },
+    "plugins-conifer": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1762968341,
+        "narHash": "sha256-dzdHoI97CdYDT2JpEZkFF6ei6Bu0Kd6Z565+OtWwd0Y=",
+        "owner": "lucasadelino",
+        "repo": "conifer.nvim",
+        "rev": "4603b65ec4975b0d311265bdcb44c1bb03007401",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lucasadelino",
+        "repo": "conifer.nvim",
         "type": "github"
       }
     },
@@ -95,22 +127,6 @@
         "type": "github"
       }
     },
-    "plugins-volt": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1749727664,
-        "narHash": "sha256-szq/QBI2Y6DKeqBuJ8qA4LlGYnarLT6D/fvwepIgSVc=",
-        "owner": "nvchad",
-        "repo": "volt",
-        "rev": "7b8c5e790120d9f08c8487dcb80692db6d2087a1",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nvchad",
-        "repo": "volt",
-        "type": "github"
-      }
-    },
     "plugins-xcodebuild": {
       "flake": false,
       "locked": {
@@ -131,11 +147,12 @@
       "inputs": {
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs",
+        "plugins-blackmetal": "plugins-blackmetal",
         "plugins-codecompanion": "plugins-codecompanion",
+        "plugins-conifer": "plugins-conifer",
         "plugins-fzf-lua": "plugins-fzf-lua",
         "plugins-fzf-lua-frecency": "plugins-fzf-lua-frecency",
         "plugins-nvim-lspconfig": "plugins-nvim-lspconfig",
-        "plugins-volt": "plugins-volt",
         "plugins-xcodebuild": "plugins-xcodebuild"
       }
     }

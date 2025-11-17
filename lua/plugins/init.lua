@@ -18,7 +18,7 @@ return {
     end,
   },
   { import = 'plugins.mini' },
-  { import = 'plugins.nvchad' },
+  { import = 'plugins.theme' },
   { import = 'plugins.treesitter' },
   { import = 'plugins.noice' },
   { import = 'plugins.snacks' },
