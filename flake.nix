@@ -59,6 +59,19 @@
       flake = false;
     };
 
+    plugins-colorizer = {
+      url = "github:catgoose/nvim-colorizer.lua";
+      flake = false;
+    };
+
+    plugins-baconvim = {
+      url = "github:Canop/nvim-bacon";
+      flake = false;
+    };
+
+    kulala.url = "github:/steven0351/kulala.nvim";
+    rustacean.url = "github:mrcjkb/rustaceanvim";
+
     # see :help nixCats.flake.inputs
     # If you want your plugin to be loaded by the standard overlay,
     # i.e. if it wasnt on nixpkgs, but doesnt have an extra build step.
@@ -77,6 +90,8 @@
       self,
       nixpkgs,
       nixCats,
+      rustacean,
+      kulala,
       ...
     }@inputs:
     let
@@ -115,6 +130,10 @@
           (utils.standardPluginOverlay inputs)
           # add any other flake overlays here.
 
+          rustacean.overlays.default
+          # (prev: final: {
+          #
+          # })
           # when other people mess up their overlays by wrapping them with system,
           # you may instead call this function on their overlay.
           # it will check if it has the system in the set, and if so return the desired overlay
@@ -154,12 +173,8 @@
             ];
           });
 
-          kulala-grammar = pkgs.tree-sitter.buildGrammar {
-            language = "kulala_http";
-            version = "${pkgs.vimPlugins.kulala-nvim.version}";
-            src = "${pkgs.vimPlugins.kulala-nvim}/lua/tree-sitter";
-            generate = true;
-          };
+          kulala-grammar = kulala.packages.${pkgs.system}.kulala-grammar;
+          kulala-nvim = kulala.packages.${pkgs.system}.kulala-nvim;
         in
         {
           # to define and use a new category, simply add a new list to a set here,
@@ -204,6 +219,7 @@
           startupPlugins = {
             gitPlugins = with pkgs.neovimPlugins; [
               conifer
+              colorizer
               blackmetal
             ];
 
@@ -211,7 +227,6 @@
               base46
               lze
               lzextras
-              nvchad-ui
               oil-nvim
               plenary-nvim
               pkgs.neovimPlugins.fzf-lua
@@ -269,6 +284,8 @@
               blink-cmp
               luasnip
               friendly-snippets
+              rustaceanvim
+              pkgs.neovimPlugins.baconvim
             ];
 
             ui = with pkgs.vimPlugins; [

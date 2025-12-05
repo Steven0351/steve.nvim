@@ -19,6 +19,7 @@ return {
   },
   { import = 'plugins.mini' },
   { import = 'plugins.theme' },
+  { import = 'plugins.colorizer' },
   { import = 'plugins.treesitter' },
   { import = 'plugins.noice' },
   { import = 'plugins.snacks' },
@@ -37,4 +38,5 @@ return {
   { import = 'plugins.xcodebuild' },
   { import = 'plugins.grug-far' },
   { import = 'plugins.kulala' },
+  { import = 'plugins.rust' },
 }

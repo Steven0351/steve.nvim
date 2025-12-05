@@ -1,6 +1,6 @@
 return {
   {
-    'kulala.nvim',
+    'kulala-nvim',
     ft = { 'http', 'rest' },
     after = function(_)
       require('kulala').setup {
