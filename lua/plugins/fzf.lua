@@ -5,6 +5,12 @@ return {
     after = function(_)
       require('fzf-lua').setup {
         fzf_colors = true,
+        winopts = {
+          border = 'solid',
+          preview = {
+            border = 'solid',
+          },
+        },
       }
 
       local frecency = function()

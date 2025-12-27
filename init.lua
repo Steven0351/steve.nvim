@@ -10,7 +10,7 @@ vim.opt.exrc = true
 vim.g.have_nerd_font = true
 vim.o.relativenumber = true
 
-vim.o.winborder = 'rounded'
+vim.o.winborder = 'solid'
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
@@ -83,6 +83,15 @@ vim.opt.scrolloff = 20
 -- instead raise a dialog asking if you wish to save the current file(s)
 -- See `:help 'confirm'`
 vim.opt.confirm = true
+
+if nixCats 'next' then
+  vim.opt.cmdheight = 0
+  require('vim._extui').enable {
+    msg = {
+      target = 'msg',
+    },
+  }
+end
 
 ---@alias mode 'n' | 'i' | 'v' | 'x' | 's' | 'o' | 'c' | 't' | mode[]
 

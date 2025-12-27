@@ -23,6 +23,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
+    neovimOverlay.url = "github:nix-community/neovim-nightly-overlay";
 
     plugins-xcodebuild = {
       url = "github:wojciech-kulik/xcodebuild.nvim";
@@ -44,8 +45,8 @@
       flake = false;
     };
 
-    plugins-codecompanion = {
-      url = "github:olimorris/codecompanion.nvim";
+    "plugins-claudecode.nvim" = {
+      url = "github:coder/claudecode.nvim";
       flake = false;
     };
 
@@ -158,15 +159,15 @@
         let
           claude-code-acp = pkgs.buildNpmPackage (finalAttrs: {
             pname = "claude-code-acp";
-            version = "0.9.0";
+            version = "0.12.6";
             src = pkgs.fetchFromGitHub {
               owner = "zed-industries";
               repo = "claude-code-acp";
               rev = "v${finalAttrs.version}";
-              hash = "sha256-XsWiSLqC/F+UPGl31hYupz8JV++Djf8KG0QHXk3qN2Q=";
+              hash = "sha256-RJ3nl86fGEEh4RgZoLiyz9XOC4wlP7WxuJzavZLsjMI=";
             };
 
-            npmDepsHash = "sha256-zumESu89N3R1QbPNpbNhtVpIzmr6AF/5YkeXyN2RAio=";
+            npmDepsHash = "sha256-3JLqokF1nk41S198NzYDT6xH8QiRm1yPBotyBnXu3E0=";
 
             buildInputs = with pkgs; [
               nodejs_24
@@ -314,10 +315,14 @@
             ];
 
             ai = with pkgs.vimPlugins; [
-              pkgs.neovimPlugins.codecompanion
+              pkgs.neovimPlugins."claudecode.nvim"
               dressing-nvim
               img-clip-nvim
             ];
+          };
+
+          neovimNext = {
+            next = [ ];
           };
 
           # shared libraries to be added to LD_LIBRARY_PATH
@@ -339,7 +344,7 @@
         # These are the names of your packages
         # you can include as many as you wish.
         stevenvim =
-          { pkgs, name, ... }:
+          { pkgs, ... }:
           {
             # they contain a settings set defined above
             # see :help nixCats.flake.outputs.settings
@@ -351,6 +356,38 @@
               # IMPORTANT:
               # your alias may not conflict with your other packages.
               aliases = [ "svim" ];
+              neovim-unwrapped = inputs.neovimOverlay.packages.${pkgs.system}.neovim;
+            };
+            # and a set of categories that you want
+            # (and other information to pass to lua)
+            categories = {
+              editor = true;
+              general = true;
+              gitPlugins = true;
+              mini = true;
+              debug = true;
+              neodev = true;
+              lsp = true;
+              ui = true;
+              treesitter = true;
+              ai = true;
+              next = true;
+              xcodebuild = pkgs.stdenv.hostPlatform.isDarwin;
+            };
+          };
+
+        "svim.prev" =
+          { pkgs, ... }:
+          {
+            # they contain a settings set defined above
+            # see :help nixCats.flake.outputs.settings
+            settings = {
+              suffix-path = true;
+              suffix-LD = true;
+              wrapRc = true;
+              configDirName = "sprevvim";
+              # IMPORTANT:
+              # your alias may not conflict with your other packages.
               # neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.system}.neovim;
             };
             # and a set of categories that you want
@@ -371,7 +408,7 @@
           };
 
         jjedit =
-          { pkgs, name, ... }:
+          { ... }:
           {
             settings = {
               suffix-path = true;

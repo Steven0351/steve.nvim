@@ -214,7 +214,9 @@ return {
             auto_show = true,
             auto_show_delay_ms = 500,
           },
-          menu = require('nvchad.blink').menu,
+          menu = {
+            auto_show = false,
+          },
         },
 
         cmdline = {
@@ -242,12 +244,11 @@ return {
         signature = {
           enabled = true,
           window = {
-            border = 'solid',
             max_height = 100,
             max_width = 200,
             scrollbar = true,
+            treesitter_highlighting = true,
             show_documentation = true,
-            winhighlight = 'Normal:CmpPmenu,CursorLine:CmpSel,Search:None,FloatBorder:CmpBorder',
           },
         },
       }
