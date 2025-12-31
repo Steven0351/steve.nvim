@@ -1,8 +1,13 @@
 return {
   {
     'vim-jjdescription',
-    for_cat = 'jj',
+    for_cat = 'editor',
     lazy = false,
+  },
+  {
+    'jj-diffconflicts',
+    for_cat = 'editor',
+    cmd = { 'JJDiffConflicts' },
   },
   {
     'hunk.nvim',

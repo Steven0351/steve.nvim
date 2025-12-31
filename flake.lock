@@ -514,6 +514,22 @@
         "type": "github"
       }
     },
+    "plugins-jj-diffconflicts": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1761262087,
+        "narHash": "sha256-FXsLSYy+eli8VArUL8ZOiPtyOk4Q8TUYwobEefZPRII=",
+        "owner": "rafikdraoui",
+        "repo": "jj-diffconflicts",
+        "rev": "bee239e847cf336fc10925a35c65052f41aa89e3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rafikdraoui",
+        "repo": "jj-diffconflicts",
+        "type": "github"
+      }
+    },
     "plugins-nvim-lspconfig": {
       "flake": false,
       "locked": {
@@ -559,6 +575,7 @@
         "plugins-conifer": "plugins-conifer",
         "plugins-fzf-lua": "plugins-fzf-lua",
         "plugins-fzf-lua-frecency": "plugins-fzf-lua-frecency",
+        "plugins-jj-diffconflicts": "plugins-jj-diffconflicts",
         "plugins-nvim-lspconfig": "plugins-nvim-lspconfig",
         "plugins-xcodebuild": "plugins-xcodebuild",
         "rustacean": "rustacean"

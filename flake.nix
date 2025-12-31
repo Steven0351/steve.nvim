@@ -70,6 +70,11 @@
       flake = false;
     };
 
+    plugins-jj-diffconflicts = {
+      url = "github:rafikdraoui/jj-diffconflicts";
+      flake = false;
+    };
+
     kulala.url = "github:/steven0351/kulala.nvim";
     rustacean.url = "github:mrcjkb/rustaceanvim";
 
@@ -176,6 +181,8 @@
 
           kulala-grammar = kulala.packages.${pkgs.system}.kulala-grammar;
           kulala-nvim = kulala.packages.${pkgs.system}.kulala-nvim;
+          nvPlugs = pkgs.neovimPlugins;
+          vPlugs = pkgs.vimPlugins;
         in
         {
           # to define and use a new category, simply add a new list to a set here,
@@ -218,25 +225,25 @@
 
           # This is for plugins that will load at startup without using packadd:
           startupPlugins = {
-            gitPlugins = with pkgs.neovimPlugins; [
+            gitPlugins = with nvPlugs; [
               conifer
               colorizer
               blackmetal
             ];
 
-            editor = with pkgs.vimPlugins; [
+            editor = with vPlugs; [
               base46
               lze
               lzextras
               oil-nvim
               plenary-nvim
-              pkgs.neovimPlugins.fzf-lua
-              pkgs.neovimPlugins.fzf-lua-frecency
+              nvPlugs.fzf-lua
+              nvPlugs.fzf-lua-frecency
               # folke plugin
               snacks-nvim
             ];
 
-            mini = with pkgs.vimPlugins; [
+            mini = with vPlugs; [
               mini-cursorword
               mini-icons
               mini-pairs
@@ -250,7 +257,7 @@
           # not loaded automatically at startup.
           # use with packadd and an autocommand in config to achieve lazy loading
           optionalPlugins = {
-            general = with pkgs.vimPlugins; [
+            general = with vPlugs; [
               conform-nvim
 
               gitsigns-nvim
@@ -260,36 +267,37 @@
 
               guess-indent-nvim
               vim-jjdescription
+              nvPlugs.jj-diffconflicts
 
               kulala-nvim
             ];
 
-            debug = with pkgs.vimPlugins; [
+            debug = with vPlugs; [
               nvim-dap
               nvim-dap-ui
               nvim-nio
             ];
 
-            jj = with pkgs.vimPlugins; [
-              hunk-nvim
+            jj = [
+              vPlugs.hunk-nvim
             ];
 
-            neodev = with pkgs.vimPlugins; [
+            neodev = with vPlugs; [
               luvit-meta
               # folke plugin
               lazydev-nvim
             ];
 
-            lsp = with pkgs.vimPlugins; [
-              pkgs.neovimPlugins.nvim-lspconfig
+            lsp = with vPlugs; [
+              nvPlugs.nvim-lspconfig
               blink-cmp
               luasnip
               friendly-snippets
               rustaceanvim
-              pkgs.neovimPlugins.baconvim
+              nvPlugs.baconvim
             ];
 
-            ui = with pkgs.vimPlugins; [
+            ui = with vPlugs; [
               fidget-nvim
               nui-nvim
               # folke plugins
@@ -298,11 +306,11 @@
             ];
 
             xcodebuild = [
-              pkgs.neovimPlugins.xcodebuild
-              pkgs.vimPlugins.telescope-nvim
+              nvPlugs.xcodebuild
+              vPlugs.telescope-nvim
             ];
 
-            treesitter = with pkgs.vimPlugins; [
+            treesitter = with vPlugs; [
               (nvim-treesitter.withPlugins (
                 plugins:
                 nvim-treesitter.allGrammars
@@ -314,8 +322,8 @@
               mini-ai
             ];
 
-            ai = with pkgs.vimPlugins; [
-              pkgs.neovimPlugins."claudecode.nvim"
+            ai = with vPlugs; [
+              nvPlugs."claudecode.nvim"
               dressing-nvim
               img-clip-nvim
             ];
