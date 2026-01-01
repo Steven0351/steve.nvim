@@ -75,7 +75,12 @@
       flake = false;
     };
 
-    kulala.url = "github:/steven0351/kulala.nvim";
+    plugins-nerdfont-search = {
+      url = "github:steven0351/nerdfont-search";
+      flake = false;
+    };
+
+    kulala.url = "github:steven0351/kulala.nvim";
     rustacean.url = "github:mrcjkb/rustaceanvim";
 
     # see :help nixCats.flake.inputs
@@ -239,6 +244,7 @@
               plenary-nvim
               nvPlugs.fzf-lua
               nvPlugs.fzf-lua-frecency
+              nvPlugs.nerdfont-search
               # folke plugin
               snacks-nvim
             ];

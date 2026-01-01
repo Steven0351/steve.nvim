@@ -469,11 +469,11 @@
     "plugins-conifer": {
       "flake": false,
       "locked": {
-        "lastModified": 1762968341,
-        "narHash": "sha256-dzdHoI97CdYDT2JpEZkFF6ei6Bu0Kd6Z565+OtWwd0Y=",
+        "lastModified": 1764527563,
+        "narHash": "sha256-yIb5EhzfK5HPUoeuOWaTtSvkg+rpOxZ5Buk+qTLSwyM=",
         "owner": "lucasadelino",
         "repo": "conifer.nvim",
-        "rev": "4603b65ec4975b0d311265bdcb44c1bb03007401",
+        "rev": "f3b29c98d45ce972139fbcbe5d1fb4ed73cd6551",
         "type": "github"
       },
       "original": {
@@ -530,6 +530,22 @@
         "type": "github"
       }
     },
+    "plugins-nerdfont-search": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1767335065,
+        "narHash": "sha256-yy84RjHmU3Scs1UIZsFHRUzM80+ygx5bvwFJvx091wc=",
+        "owner": "steven0351",
+        "repo": "nerdfont-search",
+        "rev": "c79d77525686778f727b921b4e918623e4a0abc3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "steven0351",
+        "repo": "nerdfont-search",
+        "type": "github"
+      }
+    },
     "plugins-nvim-lspconfig": {
       "flake": false,
       "locked": {
@@ -576,6 +592,7 @@
         "plugins-fzf-lua": "plugins-fzf-lua",
         "plugins-fzf-lua-frecency": "plugins-fzf-lua-frecency",
         "plugins-jj-diffconflicts": "plugins-jj-diffconflicts",
+        "plugins-nerdfont-search": "plugins-nerdfont-search",
         "plugins-nvim-lspconfig": "plugins-nvim-lspconfig",
         "plugins-xcodebuild": "plugins-xcodebuild",
         "rustacean": "rustacean"
