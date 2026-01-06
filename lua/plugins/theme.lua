@@ -10,6 +10,9 @@ return {
     end,
   },
   {
+    'zenbones',
+  },
+  {
     'blackmetal',
   },
 }

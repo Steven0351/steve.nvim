@@ -45,7 +45,7 @@
       flake = false;
     };
 
-    "plugins-claudecode.nvim" = {
+    plugins-claudecode-nvim = {
       url = "github:coder/claudecode.nvim";
       flake = false;
     };
@@ -57,6 +57,11 @@
 
     plugins-blackmetal = {
       url = "github:metalelf0/black-metal-theme-neovim";
+      flake = false;
+    };
+
+    plugins-zenbones = {
+      url = "github:zenbones-theme/zenbones.nvim";
       flake = false;
     };
 
@@ -77,6 +82,11 @@
 
     plugins-nerdfont-search = {
       url = "github:steven0351/nerdfont-search";
+      flake = false;
+    };
+
+    plugins-jj-nvim = {
+      url = "github:NicolasGB/jj.nvim";
       flake = false;
     };
 
@@ -232,6 +242,8 @@
           startupPlugins = {
             gitPlugins = with nvPlugs; [
               conifer
+              vPlugs.lush-nvim
+              zenbones
               colorizer
               blackmetal
             ];
@@ -274,6 +286,7 @@
               guess-indent-nvim
               vim-jjdescription
               nvPlugs.jj-diffconflicts
+              nvPlugs.jj-nvim
 
               kulala-nvim
             ];
@@ -329,7 +342,7 @@
             ];
 
             ai = with vPlugs; [
-              nvPlugs."claudecode.nvim"
+              nvPlugs.claudecode-nvim
               dressing-nvim
               img-clip-nvim
             ];

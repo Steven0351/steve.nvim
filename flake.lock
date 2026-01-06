@@ -176,11 +176,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1766859336,
-        "narHash": "sha256-fBRKTO9s8kvVnQUIYZfmy3xLXkR+NyScJWc8/iB7gjc=",
+        "lastModified": 1767826012,
+        "narHash": "sha256-uXiPZQLtnD8ywG91f3Vx4WGcW0tDmcy+H5PJsSoPcwg=",
         "owner": "steven0351",
         "repo": "kulala.nvim",
-        "rev": "ba67aeaeae6085dc96bcb9233ceb026e42fd2f27",
+        "rev": "d3efc2959f905b1b471fa2d759c3da1ce701f79e",
         "type": "github"
       },
       "original": {
@@ -434,14 +434,14 @@
         "type": "github"
       }
     },
-    "plugins-claudecode.nvim": {
+    "plugins-claudecode-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1764926017,
-        "narHash": "sha256-PmSYIE7j9C2ckJc9wDIm4KCozXP0z1U9TOdItnDyoDQ=",
+        "lastModified": 1767411095,
+        "narHash": "sha256-dh7RrWezkmEtMKRasYCqfYanl6VxybC6Ra649H/KrPI=",
         "owner": "coder",
         "repo": "claudecode.nvim",
-        "rev": "6091df0e8edcdc92526cec23bbb42f63c0bb5ff2",
+        "rev": "93f8e48b1f6cbf2469b378c20b3df4115252d379",
         "type": "github"
       },
       "original": {
@@ -530,6 +530,22 @@
         "type": "github"
       }
     },
+    "plugins-jj-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1767702019,
+        "narHash": "sha256-bmLNfG5J2wtjzpsfd5Pkk9n7hYw+rw2b8CmnVwQY2Co=",
+        "owner": "NicolasGB",
+        "repo": "jj.nvim",
+        "rev": "ba48ed08b5c08a7192b1a47a689e0c9f949fe5a4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NicolasGB",
+        "repo": "jj.nvim",
+        "type": "github"
+      }
+    },
     "plugins-nerdfont-search": {
       "flake": false,
       "locked": {
@@ -578,6 +594,22 @@
         "type": "github"
       }
     },
+    "plugins-zenbones": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1764664824,
+        "narHash": "sha256-AbZUVBh+6PbIINhQs7hn/NwWuLEequw0xj+c2EtgJD0=",
+        "owner": "zenbones-theme",
+        "repo": "zenbones.nvim",
+        "rev": "4635a3f46d1066975d1074cd9f61f93cb1e32f64",
+        "type": "github"
+      },
+      "original": {
+        "owner": "zenbones-theme",
+        "repo": "zenbones.nvim",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "kulala": "kulala",
@@ -586,15 +618,17 @@
         "nixpkgs": "nixpkgs_3",
         "plugins-baconvim": "plugins-baconvim",
         "plugins-blackmetal": "plugins-blackmetal",
-        "plugins-claudecode.nvim": "plugins-claudecode.nvim",
+        "plugins-claudecode-nvim": "plugins-claudecode-nvim",
         "plugins-colorizer": "plugins-colorizer",
         "plugins-conifer": "plugins-conifer",
         "plugins-fzf-lua": "plugins-fzf-lua",
         "plugins-fzf-lua-frecency": "plugins-fzf-lua-frecency",
         "plugins-jj-diffconflicts": "plugins-jj-diffconflicts",
+        "plugins-jj-nvim": "plugins-jj-nvim",
         "plugins-nerdfont-search": "plugins-nerdfont-search",
         "plugins-nvim-lspconfig": "plugins-nvim-lspconfig",
         "plugins-xcodebuild": "plugins-xcodebuild",
+        "plugins-zenbones": "plugins-zenbones",
         "rustacean": "rustacean"
       }
     },

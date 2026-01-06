@@ -1,6 +1,6 @@
 return {
   {
-    'claudecode.nvim',
+    'claudecode-nvim',
     for_cat = 'ai',
     event = 'DeferredUIEnter',
     after = function(_)
