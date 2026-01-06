@@ -20,14 +20,6 @@ return {
     end,
   },
   {
-    'mini.files',
-    after = function(_)
-      local files = require 'mini.files'
-      files.setup()
-      kset { '<leader>mf', MiniFiles.open, 'Mini Files' }
-    end,
-  },
-  {
     'mini.surround',
     after = function(_)
       require('mini.surround').setup()

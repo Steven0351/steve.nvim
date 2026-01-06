@@ -10,6 +10,19 @@ return {
     cmd = { 'JJDiffConflicts' },
   },
   {
+    'jj-nvim',
+    for_cat = 'editor',
+    cmd = { 'J' },
+    after = function(_)
+      require('jj').setup {}
+    end,
+  },
+  {
+    'jujutsu-nvim',
+    for_cat = 'editor',
+    cmd = { 'JJ' },
+  },
+  {
     'hunk.nvim',
     for_cat = 'jj',
     cmd = { 'DiffEditor' },

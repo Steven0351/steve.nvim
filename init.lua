@@ -81,12 +81,21 @@ end
 kset { '<Esc>', '<cmd>nohlsearch<CR>' }
 
 -- Diagnostic keymaps
-kset { '<leader>q', vim.diagnostic.setloclist, 'Open diagnostic [Q]uickfix list' }
 
 kset { '<C-h>', '<C-w><C-h>', 'Move focus to the left window' }
 kset { '<C-l>', '<C-w><C-l>', 'Move focus to the right window' }
 kset { '<C-j>', '<C-w><C-j>', 'Move focus to the lower window' }
 kset { '<C-k>', '<C-w><C-k>', 'Move focus to the upper window' }
+kset { '<M-j>', vim.cmd.cnext, 'Navigate down the quickfix list' }
+kset { '<M-J>', vim.cmd.lnext, 'Navigate down the location list' }
+kset { '<M-k>', vim.cmd.cprev, 'Navigate up the quickfix list' }
+kset { '<M-K>', vim.cmd.lprev, 'Navigate up the location list' }
+kset { '<M-c>', vim.cmd.cclose, 'Close the quickfix list' }
+kset { '<M-C>', vim.cmd.lclose, 'Close the location list' }
+kset { '<M-o>', vim.cmd.copen, 'Open the quickfix list' }
+kset { '<M-O>', vim.cmd.lopen, 'Open the location list' }
+kset { '<M-d>', vim.diagnostic.setqflist, 'Open diagnostic quickfix list' }
+kset { '<M-D>', vim.diagnostic.setloclist, 'Open diagnostic location list' }
 
 kset { '<Esc><Esc>', '<C-\\><C-n>', 'Exit terminal mode', mode = 't' }
 

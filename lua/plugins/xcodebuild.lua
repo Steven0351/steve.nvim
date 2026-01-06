@@ -1,7 +1,7 @@
 return {
   {
-    'xcodebuild.nvim',
-    for_cat = 'xcode',
+    'xcodebuild',
+    for_cat = 'xcodebuild',
     after = function(_)
       require('xcodebuild').setup {
         integrations = {
@@ -12,6 +12,12 @@ return {
             enabled = false,
           },
           neo_tree = {
+            enabled = false,
+          },
+          telescope_nvim = {
+            enabled = false,
+          },
+          snacks_nvim = {
             enabled = false,
           },
         },
@@ -29,10 +35,5 @@ return {
       kset { '<leader>xe', '<cmd>XcodebuildTestExplorerToggle<cr>', 'Toggle Test Explorer' }
       kset { '<leader>xa', '<cmd>XcodebuildCodeActions<cr>', 'Show Code Actions' }
     end,
-  },
-  {
-    'telescope.nvim',
-    for_cat = 'xcode',
-    on_require = 'telescope',
   },
 }

@@ -10,6 +10,15 @@ return {
     end,
   },
   {
+    'zenbones',
+  },
+  {
     'blackmetal',
+  },
+  {
+    'techbase',
+  },
+  {
+    'kanso',
   },
 }
