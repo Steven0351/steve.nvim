@@ -100,6 +100,11 @@
       flake = false;
     };
 
+    plugins-oil = {
+      url = "github:stevearc/oil.nvim";
+      flake = false;
+    };
+
     kulala.url = "github:steven0351/kulala.nvim";
     rustacean.url = "github:mrcjkb/rustaceanvim";
 
@@ -264,7 +269,7 @@
               base46
               lze
               lzextras
-              oil-nvim
+              nvPlugs.oil
               plenary-nvim
               nvPlugs.fzf-lua
               nvPlugs.fzf-lua-frecency

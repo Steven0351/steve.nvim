@@ -4,6 +4,7 @@ return {
   {
     'nvim-dap',
     for_cat = 'debug',
+    dep_of = 'xcodebuild',
     keys = {
       -- Basic debugging keymaps, feel free to change to your liking!
       {
@@ -101,12 +102,12 @@ return {
     end,
   },
   {
-    'rcarriga/nvim-dap-ui',
+    'nvim-dap-ui',
     dep_of = 'nvim-dap',
     for_cat = 'debug',
   },
   {
-    'nvim-neotest/nvim-nio',
+    'nvim-nio',
     dep_of = 'nvim-dap',
     for_cat = 'debug',
   },

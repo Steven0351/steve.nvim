@@ -1,12 +1,18 @@
 return {
   {
-    'oil.nvim',
+    'oil',
     after = function(_)
       local oil = require 'oil'
 
       oil.setup {
         default_file_explorer = true,
         skip_confirm_for_simple_edits = true,
+        columns = {
+          'permissions',
+          'size',
+          'mtime',
+          'icon',
+        },
         view_options = {
           show_hidden = true,
         },

@@ -594,6 +594,22 @@
         "type": "github"
       }
     },
+    "plugins-oil": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1768626079,
+        "narHash": "sha256-eMruZSMi72A74LqtSsyJSI3WY595aKO9n2XxJ3Du/9Y=",
+        "owner": "stevearc",
+        "repo": "oil.nvim",
+        "rev": "f55b25e493a7df76371cfadd0ded5004cb9cd48a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "stevearc",
+        "repo": "oil.nvim",
+        "type": "github"
+      }
+    },
     "plugins-techbase": {
       "flake": false,
       "locked": {
@@ -660,6 +676,7 @@
         "plugins-kanso": "plugins-kanso",
         "plugins-nerdfont-search": "plugins-nerdfont-search",
         "plugins-nvim-lspconfig": "plugins-nvim-lspconfig",
+        "plugins-oil": "plugins-oil",
         "plugins-techbase": "plugins-techbase",
         "plugins-xcodebuild": "plugins-xcodebuild",
         "plugins-zenbones": "plugins-zenbones",
