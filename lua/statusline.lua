@@ -111,7 +111,7 @@ end
 
 local function find_jj_root()
   local path = vim.fn.expand '%:p:h'
-  if path == '' then
+  if path == '' or path:match '^%w+://' then
     path = vim.fn.getcwd()
   end
 
@@ -205,23 +205,35 @@ local bufnr = function()
   return '#' .. bufid()
 end
 
+local special = function()
+  return buf().buftype ~= ''
+end
+
 function M.path()
-  local filename = vim.fn.expand(bufnr() .. ':t')
-  if filename == '' then
-    filename = '[No Name]'
+  local bufname = ''
+  -- Special buffers (oil, help, terminal, etc.) show full buffer name
+  if special() then
+    bufname = vim.api.nvim_buf_get_name(bufid())
+  else
+    bufname = vim.fn.expand(bufnr() .. ':t')
   end
 
-  local icon, hl = MiniIcons.get('file', filename)
+  if bufname == '' then
+    bufname = '[No Name]'
+  end
+
+  local icon, hl = MiniIcons.get('file', bufname)
 
   local modified = buf().modified and 'SteveNvimFileModified' or 'Label'
   local readonly = buf().readonly and ' ' or ''
 
-  return string.format('%%#%s# %s%%* %%#%s#%%t%s%%*', hl, icon, modified, readonly)
+  local type = special() and '%%f' or vim.fn.expand '%:~:.'
+  return string.format('%%#%s# %s%%* %%#%s#' .. type .. '%s%%*', hl, icon, modified, readonly)
 end
 
 -- jj component (bookmark + change ID + conflicts + file stats)
 function M.jj()
-  if not jj_cache.is_jj_repo then
+  if not jj_cache.is_jj_repo or special() then
     return ''
   end
 
@@ -311,10 +323,13 @@ end
 
 function M.build_statusline()
   local width = vim.api.nvim_win_get_width(0)
+  local status_line
 
   local left = {
     M.mode(),
   }
+
+  status_line = table.concat(left, ' ')
 
   local left_middle = {
     M.path(),
@@ -324,15 +339,21 @@ function M.build_statusline()
     table.insert(left_middle, M.diagnostics())
   end
 
-  local right_middle = {
-    M.jj(),
-  }
+  status_line = status_line .. '%=' .. table.concat(left_middle, ' ')
+
+  if not special() then
+    local right_middle = {
+      M.jj(),
+    }
+
+    status_line = status_line .. '%=' .. table.concat(right_middle)
+  end
 
   local right = {
     M.progress(),
   }
 
-  return table.concat(left, ' ') .. '%=' .. table.concat(left_middle, '  ') .. '%=' .. table.concat(right_middle, '  ') .. '%=' .. table.concat(right, ' ')
+  return status_line .. '%=' .. table.concat(right, ' ')
 end
 
 function M.setup()
